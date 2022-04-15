@@ -143,4 +143,5 @@ while True:
         pass
     
     except KeyboardInterrupt:
+        os.system('cls')
         pass
