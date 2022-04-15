@@ -1,4 +1,4 @@
-import urllib.request, os, requests, re, time, datetime, sys, random
+import urllib.request, os, requests, re, time, datetime, sys, random, pathlib
 from playsound import playsound
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent # новое
@@ -6,6 +6,31 @@ from colorama import Fore, Style, init
 from os import environ, getcwd
 import fake_useragent
 init()
+
+getUser = lambda: environ['USERNAME']
+user = getUser()
+
+
+def col():
+    global w
+    ih = random.randint(1,5)
+    if ih == 1:
+        w = Fore.WHITE
+
+    if ih == 2:
+        w = Fore.GREEN
+
+    if ih == 3:
+        w = Fore.YELLOW
+
+    if ih == 4:
+        w = Fore.RED
+ 
+    if ih == 5:
+        w = Fore.CYAN
+
+    
+
 
 
 def да():
@@ -41,190 +66,81 @@ def rand():
     if a == 3:
         есть()
 
+os.system('cls')
+print('\n\n')
+def res():
+    print(Style.RESET_ALL)
 
+mus = ['Alan Walker - Alone','Alan Walker - Sing Me to Sleep','Alan Walker - Live Fast',
+       'Alan Walker - Sweet Dreams','Alan Walker - Sorry','CHVRCHS - Miracle','Clandestina','Eminem - Rap God','Eva Simons - Bludfire','Hans Zimmer - End Credits','Katy Perry - Dark Horse',
+       'Alan Walker - Legends Never Die','Leonid Rudenko, ARITMIYA - Rain Sun','Minelli - Rampampam','Nessa Barrett - la di die',
+       'Parah Dice - Hot','Alan Walker - Are You Lonely','TOMYGONE Amvis - What More','Оксимирон - Цунами','Annodomini - Никто не Нужен','AC_DC - WAR MACHINE','AC_DC - T_N_T',
+       'AC_DC - Thunderstruck','AC_DC - Highway to Hell','AC_DC - Back in Black','Ghostemane - Fed Up','Ghostemane - Venom','uicedeboy - LTE','uicideboy - Paris','Lil Peep - Star Shopping',
+       'Король и Шут - Лесник','Lost Frequencies - Reality','The Score - Head Up','Disturbed - Old Friend','Король и Шут - Кукла колдуна','БИ-2, oxxxymiron - Пора возвращаться домой',
+       'Blues Saraceno - Dogs of War','БИ-2 - Большие города','Thousand Foot Krutch - Take It Out On Me','Skillet - Back to Life','K.Flay - High Enough','Three Days Grace - So Called Life',
+       'Chvrches, Matt Berninger - My Enemy','Bishop Briggs - River','Disturbed - Liberate','Oxxxymiron, Porchy - Earth Burns','Papa Roach - Last Resort','Slipknot - Dead Memories',
+       'Dope - Die MF Die','Slipknot - Before I Forget','Александр Пушной - Всё идёт по плану','Би-2 - Чёрное солнце','Oxxxymiron - В книге всё было по-другому (4 раунд, 17ib)',
+       'Oxxxymiron - Дело нескольких минут (3 раунд, 17 ib)','Oxxxymiron, Самариддин Раджабов - Ветер перемен (2 раунд 17ib)','Oxxxymiron - В долгий путь (1 раунд 17ib)',
+       'Oxxxymiron - До зимы','Oxxxymiron - Не от мира сего','Oxxxymiron - Признаки жизни','Oxxxymiron - Детектор лжи','Oxxxymiron - Хитиновый покров',
+       'Oxxxymiron - Волапюк','Oxxxymiron - Больше Бена','Oxxxymiron - Цифры и цвета','Oxxxymiron - Где нас нет','Oxxxymiron - Башня из слоновой кости','Oxxxymiron - Слово мэра',
+       'Oxxxymiron - Накануне','Oxxxymiron - Полигон','Oxxxymiron - Колыбельная','Oxxxymiron - Переплетено','Oxxxymiron - Всего лишь писатель','Oxxxymiron - Кем ты стал',
+       'Oxxxymiron - Город под подошвой','Oxxxymiron - Reality','Oxxxymiron, Markul - Fata Morgana',
+       'Saliva - They Dont Care About Us','Bullet For My Valentine - All These Things I Hate','Jonas Blue and Rita Ora - Ritual','Travis Scott and Hvme - Goosebumps',
+       'BLIND CHANNEL - Dark Side','onepunchman - Opening 1','Oxxxymiron - Хоп-механика','Oxxxymiron - Мы все умрем','Annodomini - Не надо слов','Fivefold - Fading Away',
+       'Renegade Five - When Youre Gone','Alan Walker, Torine - Hello World','Don Omar, Lucenzo - Danza Kuduro','Linkin Park - Faint','Linkin Park - Numb','Linkin Park - From The Inside',
+       'Three Days Grace - I Hate Everything About You',"The Offspring - You're Gonna Go Far, Kid",'Thousand Foot Krutch - War of Change',
+       'Skillet - Hero','All Time Low, blackbear - Monsters','From Ashes to New - Blind','RADIO TAPOK - Feel Invincible - Skillet','RADIO TAPOK - The Offspring - The Kids Arent Alrigh',
+       "Airbourne - Breakin' Outta Hell"
+       
+       ]
+
+
+    
+ 
 
 while True:
-    global noh
-    noh = 1
+    a = 0
+    print(Fore.GREEN+   ' ╔════════════════════════════════════════════════════════════════════════════════╗')
+    for i in mus:
+        a += 1
+        col()
+        print(Fore.GREEN,'║',Style.RESET_ALL,a,'Музыка:',Style.BRIGHT,w,i,Style.RESET_ALL)
+        if a <101:
+            print(Fore.GREEN+' ╠════════════════════════════════════════════════════════════════════════════════╣')
+        if a == 101:
+            print(Fore.GREEN+ ' ╚════════════════════════════════════════════════════════════════════════════════╝')
+
+
+    try:
+        col()
+        res()
+        ap = int(input('\n\n Что включить --> '))
     
+
     
-    
-    user = fake_useragent.UserAgent().random
-    
-    headers = {
-        'user-agent': user
-    }
-    
-    
-    def res():
-        print(Style.RESET_ALL)
-    
-    
-    
-    getUser = lambda: environ['USERNAME']
-    user = getUser()
-    global d
-    
-    def dat():
-        while True:
-            today = datetime.datetime.today()
-            global d
-            d = today.strftime("%Y-%m-%d-%H.%M.%S")
+        if ap == 0:
+            как_пож()
+            print(Fore.CYAN+'       Выхожу')
+            time.sleep(2.5)
+            os.system('cls')
             break
         
-    
-    os.system('cls')
-    print('\n\n',headers,'\n\n\n')
-    dat()
-    print(Fore.CYAN+Style.BRIGHT+'  Время: ',d)
-    res()
-    print('\n\n  Чтобы выйти введите - '+Fore.RED+Style.BRIGHT+'0\n'+Style.RESET_ALL)
-    isp = input("\n\n  Введите исполнителя --> ")
-    if isp == '0':
-        os.system('cls')
-        усл()
-        break
-    track = input("\n    Введите трек --> ")
-    if track == '0':
-        os.system('cls')
-        усл()
-        break
-    print('\n\n\n')
-    url = 'https://ru.hitmotop.com/search?q='+isp+'+-+'+track
-    
-    
-    if isp == '' and track == '':
-        print(Fore.RED+Style.BRIGHT+'\n\n     Вы ввели ничего\n\n'), чего()
-        res()
-        noh = 0
-        sys.stdout.write('  Перезапуск через '+Fore.GREEN+Style.BRIGHT+'10с\r'+Style.RESET_ALL)
-        time.sleep(1)
-        sys.stdout.write('  Перезапуск через '+Fore.GREEN+Style.BRIGHT+'9с \r'+Style.RESET_ALL)
-        time.sleep(1)
-        sys.stdout.write('  Перезапуск через '+Fore.GREEN+Style.BRIGHT+'8с \r'+Style.RESET_ALL)
-        time.sleep(1)
-        sys.stdout.write('  Перезапуск через '+Fore.GREEN+Style.BRIGHT+'7с \r'+Style.RESET_ALL)
-        time.sleep(1)
-        sys.stdout.write('  Перезапуск через '+Fore.GREEN+Style.BRIGHT+'6с \r'+Style.RESET_ALL)
-        time.sleep(1)
-        sys.stdout.write('  Перезапуск через '+Fore.GREEN+Style.BRIGHT+'5с \r'+Style.RESET_ALL)
-        time.sleep(1)
-        sys.stdout.write('  Перезапуск через '+Fore.GREEN+Style.BRIGHT+'4с \r'+Style.RESET_ALL)
-        time.sleep(1)
-        sys.stdout.write('  Перезапуск через '+Fore.GREEN+Style.BRIGHT+'3с \r'+Style.RESET_ALL)
-        time.sleep(1)
-        sys.stdout.write('  Перезапуск через '+Fore.GREEN+Style.BRIGHT+'2с \r'+Style.RESET_ALL)
-        time.sleep(1)
-        sys.stdout.write('  Перезапуск через '+Fore.GREEN+Style.BRIGHT+'1с \r'+Style.RESET_ALL)
-        time.sleep(1)
-        sys.stdout.write('  Перезапуск через '+Fore.GREEN+Style.BRIGHT+'0с \r'+Style.RESET_ALL)
-        перез()
-        print('\n\n')
         
-    if noh == 1:
-        if track == '':
-            url = 'https://ru.hitmotop.com/search?q='+isp
-            print('  Исходная ссылка:  ',url)
-            
-        
-        
-        
-        
-        track2 = re.sub(" ", "+", url)
-        
-        print('    Изменённая ссылка:  ',track2)
-        
-        
-        
-        req = requests.get(url, headers)
-        
-        
-        
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'lxml')
-        
-        
-        naz_track = soup.find_all('div', class_='track__title')
-        musikant_track = soup.find_all('div', class_='track__desc')
-        count = 0
-        coun = 0
-        
-        
-        print('\n\n\n')
-        na = []
-        for i in naz_track:
-            coun +=1
-            global i_text
-            i_text = i.text
-            i_text = i_text.lstrip()
-            print(Fore.GREEN+Style.BRIGHT+f"  {coun}  "+Fore.CYAN+'Трек: '+Style.RESET_ALL+f"{musikant_track[count].text} - {i_text}")
-            na.append(i_text)
-        
-        
-        
-        
-            
-        items = soup.find_all('ul', class_='tracks__list')
-        
-        
-        print('\n\n\n')
-        #               ссылка
-        
-        
-        
-        global nm
-        nm = 0
-        sp = []
-        print('\n\n')
-        for uro in soup.find_all('a', class_='track__download-btn'):
-            global abn
-            abn = uro.get('href')
-            sp.append(abn)
-            nm+=1
-            print(Fore.GREEN,Style.BRIGHT,f'  {nm}',Fore.CYAN+Style.BRIGHT+'  Ссылка: ',Style.RESET_ALL,'    ',f'{abn}','\n')
-            #print('    ',f'{abn}','\n')
-            
-        
-        
-        
-        
-        
-        print('\n\n\n')
-        
-        while True:
-            
-           
-            
-            
-            print('\n Выйти из скачки - '+Fore.RED+Style.BRIGHT+'0'+Style.RESET_ALL)
-            ap = int(input('\n\n Что скачать --> '))
-            if ap == 0:
+        if ap <= 101:
+            nm = mus[ap-1]
+            print(nm)
+            rand()
+            path = pathlib.Path('C:/Users/'+ user +'/01/'+nm+'.mp3')
+            if path.exists() == True:
+                os.startfile('C:/Users/'+ user +'/01/'+nm+'.mp3')
                 os.system('cls')
-                break
-            
-            if ap <= 48:
-                nm = sp[ap-1]
-                print(nm)
-
-                rand()
-                try:
-                    global ab
-                    ab = 'hitmotop' 
-                    df = 'c:/Users/'+user+'/'+ab
-                    os.mkdir(df)
-                    print('\n         Папка hitmotop создана в '+ df)
-                except FileExistsError:
-                    print("\n      Папка hitmotop"+ Fore.CYAN+ ' уже '+ Style.RESET_ALL +'создана в '+df+'\n')
-                    time.sleep(3)
-            
-            
-                url2 = abn
-                        
-                if track == '':
-                    dat()
-                    urllib.request.urlretrieve(nm, 'c:/Users/'+user+'/'+ab+'/'+isp+'_'+d+'.mp3')
-                    print('     Файл '+isp+' ' + d + Fore.CYAN +  ' скачан\n'+ Style.RESET_ALL)
-              
-                else:
-                    urllib.request.urlretrieve(nm, 'c:/Users/'+user+'/'+ab+'/'+isp+'_'+track+'.mp3')
-                    print('     Файл '+isp+' ' + track + Fore.CYAN +  ' скачан\n'+ Style.RESET_ALL)
+                time.sleep(1)  
+            else:
+               print('Ошибка')
+                            
+    except ValueError:
+        os.system('cls')
+        pass
+    
+    except KeyboardInterrupt:
+        pass
